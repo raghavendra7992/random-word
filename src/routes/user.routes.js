@@ -12,7 +12,7 @@ app.post("/", async (req, res) => {
     res.status(500).send(e.message);
   }
 });
-app.get("/:id", async (req, res) => {
+app.post("/:id", async (req, res) => {
   try {
     let user = await User.findOne({ _id: req.params.id });
     res.send(user);
