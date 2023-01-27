@@ -3,15 +3,14 @@ const { Schema, model } = require("mongoose");
 const userSchema = new Schema(
   {
     name: { type: String },
-    diff: { type: String },
+    diff: {type:String,enum:['High',"Medium","Low"]},
+    score:{type:Number,default:0},
   },
   {
-    timestamps: {
-      createdAt: "created_at",
-    },
+    timestamps: true
   }
 );
 
-const User = model("user-game", userSchema);
+const User = model("user-games", userSchema);
 
 module.exports = User;
